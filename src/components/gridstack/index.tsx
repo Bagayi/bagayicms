@@ -23,11 +23,15 @@ export default component$(() => {
           ];
         grid?.current?.addWidget(items[0]);
 
-        grid?.current?.getGridItems().forEach((item) => {
-            console.log("item:", item)
+        grid?.current?.engine.nodes.forEach((item) => {
+            console.log("node:", item.y, item.x, item.w, item.h, item.el);
         });
 
         console.log("cell heigh:", grid?.current?.getCellHeight());
+
+        console.log("save:", grid?.current?.save());
+
+        grid?.current?.engine.compact();
     });
 
     useTask$(async () => {
@@ -57,19 +61,20 @@ export default component$(() => {
             <button type="button" onClick$={() => addNested()}>
               Add Widget
             </button>
-            <div class="App">
-                <div class="grid-stack">
-                    <div class="grid-stack-item border-dark" data-gs-width="4" data-gs-height="4">
-                    <div class="grid-stack-item-content">Item 1</div>
-                </div>
-                <div class="grid-stack-item border-dark" data-gs-width="4" data-gs-height="4">
+            <div class="grid-stack">
+                    <div class="grid-stack-item border-dark" gs-x="4" gs-y="4">
+                        <div class="grid-stack-item-content">Item 1</div>
+                    </div>
+                    <div class="grid-stack-item border-dark" gs-x="4" gs-y="4">
                     <div class="grid-stack-item-content">Item 2</div>
-                </div>
-                <div class="grid-stack-item border-dark" data-gs-width="4" data-gs-height="4">
-                    <div class="grid-stack-item-content">Item 3</div>
-                </div>
+                    </div>
+                    <div class="grid-stack-item border-dark" gs-x="4" gs-y="4">
+                    <div class="grid-stack-item-content">
+                        <h2>item 3</h2>
+                        <button type="button" onClick$={() => addNested()}>Foo</button>
+                    </div>
+                    </div>
             </div>
-        </div>
         </div>
         </>
     );
