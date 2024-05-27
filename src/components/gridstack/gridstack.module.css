@@ -1,0 +1,7 @@
+.draggable {
+    width: 140px;
+    height: 140px;
+    background: #F90;
+    border-radius: 10px;
+    cursor: move;
+  }

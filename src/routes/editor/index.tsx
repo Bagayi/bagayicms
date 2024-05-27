@@ -6,12 +6,6 @@ import Gridstack from "~/components/gridstack";
 export default component$(() => {
   return (
     <>
-      <h1>Hi 👋</h1>
-      <div>
-        Can't wait to see what you build with qwik! editor
-        <br />
-        Happy coding.
-      </div>
       <div>
         <Gridstack></Gridstack>
       </div>

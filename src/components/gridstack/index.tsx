@@ -1,6 +1,7 @@
 import { Component, component$, useSignal, useTask$,$, useVisibleTask$, type NoSerialize} from "@builder.io/qwik";
 import {GridStack} from 'gridstack';
 import 'gridstack/dist/gridstack.css';
+import Drag from "../Draggable";
 
 export default component$(() => {
     
@@ -9,7 +10,15 @@ export default component$(() => {
     // eslint-disable-next-line qwik/no-use-visible-task
     useVisibleTask$(() => {
         console.log('usingVisibleTask$');
-        grid.current = GridStack.init({margin: 0}) as NoSerialize<GridStack>;
+        grid.current = GridStack.init({
+            margin: 0,
+            // float: true,
+            cellHeight: "1em",
+            // cellHeightUnit: '10em',
+            columnOpts: {
+                columnWidth: 1
+            }
+        }) as NoSerialize<GridStack>;
     });
 
     // GridStack
@@ -61,19 +70,33 @@ export default component$(() => {
             <button type="button" onClick$={() => addNested()}>
               Add Widget
             </button>
+            <Drag>
+                <div> 
+                    <p> Hellow world </p>  
+                    <p> hello world two</p>    
+                </div>
+            </Drag>
+            <Drag>
+                <h1> Hellow world </h1>
+            </Drag>
+            <Drag>
+                Fooo
+            </Drag>
             <div class="grid-stack">
-                    <div class="grid-stack-item border-dark" gs-x="4" gs-y="4">
+                    <div class="grid-stack-item" gs-x="0" gs-y="1">
                         <div class="grid-stack-item-content">Item 1</div>
                     </div>
-                    <div class="grid-stack-item border-dark" gs-x="4" gs-y="4">
-                    <div class="grid-stack-item-content">Item 2</div>
+                    <div class="grid-stack-item" gs-x="1" gs-y="1">
+                        <div class="grid-stack-item-content">Item 2</div>
                     </div>
-                    <div class="grid-stack-item border-dark" gs-x="4" gs-y="4">
-                    <div class="grid-stack-item-content">
-                        <h2>item 3</h2>
-                        <button type="button" onClick$={() => addNested()}>Foo</button>
+                    <div class="grid-stack-item" gs-x="2" gs-y="1">
+                        <div class="grid-stack-item-content">
+                            <h2>item 3</h2>
+                            <button type="button" onClick$={() => addNested()}>Foo</button>
+                        </div>
                     </div>
-                    </div>
+                    <p class="grid-stack-item" gs-x="4" gs-y="1"> Hello world</p>
+                    <h1 class="grid-stack-item" gs-x="5" gs-y="1"> Hello world</h1>
             </div>
         </div>
         </>
