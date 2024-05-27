@@ -9,7 +9,7 @@ export default component$(() => {
     // eslint-disable-next-line qwik/no-use-visible-task
     useVisibleTask$(() => {
         console.log('usingVisibleTask$');
-        grid.current = GridStack.init() as NoSerialize<GridStack>;
+        grid.current = GridStack.init({margin: 0}) as NoSerialize<GridStack>;
     });
 
     // GridStack
@@ -22,6 +22,12 @@ export default component$(() => {
             {w: 3, content: "third widget"}
           ];
         grid?.current?.addWidget(items[0]);
+
+        grid?.current?.getGridItems().forEach((item) => {
+            console.log("item:", item)
+        });
+
+        console.log("cell heigh:", grid?.current?.getCellHeight());
     });
 
     useTask$(async () => {
