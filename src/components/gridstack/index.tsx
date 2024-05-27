@@ -58,8 +58,8 @@ export default component$(() => {
               Add Widget
             </button>
             <div class="App">
-            <div class="grid-stack">
-                <div class="grid-stack-item border-dark" data-gs-width="4" data-gs-height="4">
+                <div class="grid-stack">
+                    <div class="grid-stack-item border-dark" data-gs-width="4" data-gs-height="4">
                     <div class="grid-stack-item-content">Item 1</div>
                 </div>
                 <div class="grid-stack-item border-dark" data-gs-width="4" data-gs-height="4">
@@ -70,7 +70,7 @@ export default component$(() => {
                 </div>
             </div>
         </div>
-          </div>
+        </div>
         </>
     );
 });
